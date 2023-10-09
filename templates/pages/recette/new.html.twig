@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+
+<h1 class="mt-4 ">Création d'une recette</h1>
+    {{ form_start(form)}}
+
+
+
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Recette{% endblock %}
+
+{% block body %}
+
+    <div class = "container mt-4">
+        <h1> Mes Recettes </h1>
+
+        <a href="{{ path ('recette.new') }}"> Ajouter nouvelle recette </a>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Numéro</th>
+                <th scope="col">Name</th>
+                <th scope="col">Temps</th>
+                <th scope="col">Nb Personne</th>
+                <th scope="col">Difficulté</th>
+                <th scope="col">Description</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Favoris</th>
+                <th scope="col">Date création</th>
+                <th scope="col">Date modification</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recette in recettes %}
+                <tr class="table-primary">
+                    <td>{{ recette.id }}</td>
+                    <td>{{ recette.name }}</td>
+                    <td>{{ recette.time }}</td>
+                    <td>{{ recette.numberOfPerson }}</td>
+                    <td>{{ recette.lvlDifficult }}</td>
+                    <td>{{ recette.description }}</td>
+                    <td>{{ recette.price }}</td>
+                    <td>{{ recette.isFavorite }}</td>
+                    <td>{{ recette.createdAt|date("d/m/Y") }}</td>
+                    <td>{{ recette.updatedAt|date("d/m/Y") }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
